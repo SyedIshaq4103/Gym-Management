@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Schedule</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body{
+            color: black;
+        }
+        .btn{
+        text-decoration: none;
+        background: linear-gradient(90deg, #f8f6f6, #676766);
+    }
+    .btn:hover{
+        text-decoration: none;
+        background: linear-gradient(90deg, #1f1e1e, #676766);
+    }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>My Schedule</h2>
+        <p>Next Class: <span id="nextClass">Yoga</span> on <span id="classDate">20th March at 6 PM</span></p>
+
+        <a href="../user_dashboard.html"><button class="btn">Back to Dashboard</button></a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let userName = localStorage.getItem("currentUser");
+            let schedules = JSON.parse(localStorage.getItem("schedules")) || [];
+            let userSchedule = schedules.find(schedule => schedule.name === userName);
+
+            document.getElementById("nextClass").textContent = userSchedule ? userSchedule.class : "No class scheduled";
+            document.getElementById("classDate").textContent = userSchedule ? userSchedule.date : "Not available";
+        });
+    </script>
+</body>
+</html>

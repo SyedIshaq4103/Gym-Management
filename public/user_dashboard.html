@@ -5,35 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body{
+            background: url('./images/user_dashboard.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
     <div class="dashboard-container">
-        <h2><i class="fas fa-user"></i> User Dashboard</h2>
-        <p>Welcome! Here you can view your membership details and bills.</p>
+       
 
-        <div class="card">
-            <h3><i class="fas fa-dumbbell"></i> My Membership</h3>
-            <p><strong>Package:</strong> Gold Membership</p>
-            <p><strong>Valid Till:</strong> 30th June 2025</p>
+        <div class="card user">
+            <h3> Membership</h3>
+            <p><strong>Package:</strong> <span id="membershipPlan">Loading...</span></p>
+            <a href="./members/my_membership.html"><button class="user">View Details</button></a>
         </div>
 
-        <div class="card">
-            <h3><i class="fas fa-file-invoice"></i> My Bills</h3>
-            <p><strong>Last Bill:</strong> $50 (Paid on 1st March 2025)</p>
-            <button class="btn">View All Bills</button>
+        <div class="card user">
+            <h3> Bills</h3>
+            <p><strong>Last Bill:</strong> <span id="lastBill">Loading...</span></p>
+            <a href="./members/my_bills.html"><button class="user">View All Bills</button></a>
         </div>
 
-        <div class="card">
-            <h3><i class="fas fa-calendar"></i> My Schedule</h3>
-            <p>Next Class: <strong>Yoga</strong> on 20th March at 6 PM</p>
+        <div class="card user">
+            <h3>Schedule</h3>
+            <p>Next Class: <span id="nextClass">Yoga</span> on <span id="classDate">20th March at 6 PM</span></p>
+            <a  class="user" href="./members/my_schedule.html"><button >View Schedule</button></a>
         </div>
 
-        <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        <button style="color: black;"  class="logout-btn " onclick="logout()">Login</button>
     </div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let userName = localStorage.getItem("currentUser"); // Fetch the logged-in user
+            let feePackages = JSON.parse(localStorage.getItem("feePackages")) || [];
+            let bills = JSON.parse(localStorage.getItem("bills")) || [];
+
+            let userPackage = feePackages.find(pkg => pkg.name === userName);
+            let userBill = bills.find(bill => bill.name === userName);
+
+            document.getElementById("membershipPlan").textContent = userPackage ? userPackage.package : "Not Assigned";
+            document.getElementById("lastBill").textContent = userBill ? `₹${userBill.amount}` : "No bills yet";
+        });
+
         function logout() {
-            localStorage.removeItem("token");
+            localStorage.removeItem("currentUser");
             window.location.href = "login.html";
         }
     </script>

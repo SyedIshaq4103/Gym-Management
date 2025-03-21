@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Membership</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body{
+            color: black;
+        }
+        .btn{
+        text-decoration: none;
+        background: linear-gradient(90deg, #f8f6f6, #676766);
+    }
+    .btn:hover{
+        text-decoration: none;
+        background: linear-gradient(90deg, #1f1e1e, #676766);
+    }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>My Membership</h2>
+        <p><strong>Plan:</strong> <span id="membershipPlan">Loading...</span></p>
+        <p><strong>Valid Till:</strong> <span id="validDate">30th June 2025</span></p>
+
+        <a href="../user_dashboard.html"><button class="btn">Back to Dashboard</button></a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let userName = localStorage.getItem("currentUser");
+            let feePackages = JSON.parse(localStorage.getItem("feePackages")) || [];
+            let userPackage = feePackages.find(pkg => pkg.name === userName);
+
+            document.getElementById("membershipPlan").textContent = userPackage ? userPackage.package : "Not Assigned";
+        });
+    </script>
+</body>
+</html>

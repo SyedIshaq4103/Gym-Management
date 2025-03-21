@@ -3,25 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gym Management System</title>
+    <title>Next Level Gym</title>
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body {
+            background: url('./images/index.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Navbar -->
     <header>
-        <h1>Welcome to Gym Management System</h1>
+        <div class="logo">Next Level Gym</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="login.html" class="btn">Login</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <p>Manage your gym membership with ease.</p>
-        <div class="buttons">
-            <a href="signup.html" class="btn">Sign Up</a>
-            <a href="login.html" class="btn">Login</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Next Level Gym</h1>
+            <p>Join us and push past your limits.</p>
+            <a href="signup.html" class="btn">Join Now</a>
         </div>
-    </main>
+    </section>
 
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Welcome to Next Level Gym, where limits are shattered. Our expert trainers and state-of-the-art facilities help you push past your limits and achieve greatness.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-list">
+            <div class="service">
+                <h3>Personal Training</h3>
+                <p>personal coaching with expert trainers.</p>
+            </div>
+            <div class="service">
+                <h3>Strength Training</h3>
+                <p>All equipment for your muscle growth.</p>
+            </div>
+            <div class="service">
+                <h3>Cardio Workouts</h3>
+                <p>Top-tier treadmills, cycling, and HIIT sessions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <h2>Membership Plans</h2>
+        <div class="pricing-plans">
+            <div class="plan">
+                <h3>Basic Plan</h3>
+                <p>₹999/month</p>
+                <a href="signup.html">
+                    <button>Access Now</button>
+                </a>
+                
+            </div>
+            <div class="plan">
+                <h3>Standard Plan</h3>
+                <p>₹1,499/month</p>
+                <a href="signup.html">
+                    <button>Access Now</button>
+                </a>
+                
+            </div>
+            <div class="plan">
+                <h3>Premium Plan</h3>
+                <p>₹2,999/month</p>
+                <a href="signup.html">
+                    <button>Access Now</button>
+                </a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p><span>Address:</span> 123 Gym Street, Stength City</p>
+        <p><span>phone:</span>+91 80887525, +91 8754912564</p>
+        <p><span>E-mail:</span> contact@nextlevelgym.com</p>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Gym Management System</p>
+        <p>&copy; 2024 Next Level Gym. All Rights Reserved.</p>
     </footer>
 
 </body>
